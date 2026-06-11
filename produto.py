@@ -13,7 +13,6 @@ class Produto:
         self.validar()
  
     def validar(self) -> None:
-        """Valida os campos do produto conforme regras de negócio."""
         if not self.codigo or not self.codigo.strip():
             raise ValueError("Código não pode ser vazio.")
         if not self.nome or not self.nome.strip():
@@ -26,7 +25,6 @@ class Produto:
             raise ValueError("Quantidade não pode ser negativa.")
         
     def to_dict(self) -> dict:
-        """Converte o produto para dicionário (serialização)."""
         return {
             "codigo": self.codigo,
             "nome": self.nome,
@@ -37,7 +35,6 @@ class Produto:
  
     @staticmethod
     def from_dict(data: dict) -> "Produto":
-        """Cria um Produto a partir de um dicionário."""
         return Produto(
             codigo=data["codigo"],
             nome=data["nome"],
@@ -55,14 +52,12 @@ class Produto:
         )
  
 def validar_codigo(codigo: str) -> str:
-    """Valida e normaliza um código de produto."""
     codigo = codigo.strip().upper()
     if not codigo:
         raise ValueError("Código não pode ser vazio.")
     return codigo
  
 def validar_preco(valor: str) -> float:
-    """Converte e valida um preço informado como string."""
     try:
         preco = float(valor.replace(",", "."))
     except (ValueError, AttributeError):
@@ -72,7 +67,6 @@ def validar_preco(valor: str) -> float:
     return preco
  
 def validar_quantidade(valor: str) -> int:
-    """Converte e valida uma quantidade informada como string."""
     try:
         qtd = int(valor)
     except (ValueError, AttributeError):
