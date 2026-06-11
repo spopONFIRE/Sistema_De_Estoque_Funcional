@@ -60,7 +60,7 @@ Na primeira execução, os dados são carregados automaticamente.
 | 8 | Listar por categoria |
 | 9 | Relatório de estoque baixo (limite configurável) |
 | 10 | Relatório menor/maior preço |
-| 01 | Sair
+| 0 | Sair
 
 ---
 
